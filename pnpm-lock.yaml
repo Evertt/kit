@@ -244,8 +244,8 @@ importers:
         specifier: ^0.25.4
         version: 0.25.9
       set-cookie-parser:
-        specifier: ^2.6.0
-        version: 2.6.0
+        specifier: ^3.0.0
+        version: 3.0.1
     devDependencies:
       '@netlify/edge-functions':
         specifier: 'catalog:'
@@ -560,8 +560,8 @@ importers:
         specifier: ^1.8.1
         version: 1.8.1
       set-cookie-parser:
-        specifier: ^2.6.0
-        version: 2.6.0
+        specifier: ^3.0.0
+        version: 3.0.1
       sirv:
         specifier: ^3.0.0
         version: 3.0.2
@@ -6343,6 +6343,9 @@ packages:
 
   set-cookie-parser@2.6.0:
     resolution: {integrity: sha512-RVnVQxTXuerk653XfuliOxBP81Sf0+qfQE73LIYKcyMYHG94AuH0kgrQpRDuTZnSmjpysHmzxJXKNfa6PjFhyQ==}
+
+  set-cookie-parser@3.0.1:
+    resolution: {integrity: sha512-n7Z7dXZhJbwuAHhNzkTti6Aw9QDDjZtm3JTpTGATIdNzdQz5GuFs22w90BcvF4INfnrL5xrX3oGsuqO5Dx3A1Q==}
 
   set-error-message@2.0.1:
     resolution: {integrity: sha512-s/eeP0f4ed1S3fl0KbxZoy5Pbeg5D6Nbple9nut4VPwHTvEIk5r7vKq0FwjNjszdUPdlTrs4GJCOkWUqWeTeWg==}
@@ -12517,6 +12520,8 @@ snapshots:
   server-side-dep@file:packages/adapter-cloudflare/test/apps/workers/server-side-dep: {}
 
   set-cookie-parser@2.6.0: {}
+
+  set-cookie-parser@3.0.1: {}
 
   set-error-message@2.0.1:
     dependencies:
