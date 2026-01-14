@@ -317,9 +317,7 @@ export function form(id) {
 
 				touched = {};
 
-				form.addEventListener('submit', onsubmit);
-
-				form.addEventListener('input', (e) => {
+				const handle_input = (e) => {
 					// strictly speaking it can be an HTMLTextAreaElement or HTMLSelectElement
 					// but that makes the types unnecessarily awkward
 					const element = /** @type {HTMLInputElement} */ (e.target);
@@ -340,7 +338,7 @@ export function form(id) {
 						if (element.tagName === 'SELECT') {
 							value = Array.from(
 								element.querySelectorAll('option:checked'),
-								(e) => /** @type {HTMLOptionElement} */ (e).value
+								(e) => /** @type {HTMLOptionElement} */(e).value
 							);
 						} else {
 							const elements = /** @type {HTMLInputElement[]} */ (
@@ -398,19 +396,27 @@ export function form(id) {
 					name = name.replace(/^[nb]:/, '');
 
 					touched[name] = true;
-				});
+				};
 
-				form.addEventListener('reset', async () => {
+				const handle_reset = async () => {
 					// need to wait a moment, because the `reset` event occurs before
 					// the inputs are actually updated (so that it can be cancelled)
 					await tick();
 
 					input = convert_formdata(new FormData(form));
-				});
+				};
+
+				form.addEventListener('submit', onsubmit);
+				form.addEventListener('input', handle_input);
+				form.addEventListener('reset', handle_reset);
 
 				return () => {
 					element = null;
 					preflight_schema = undefined;
+
+					form.removeEventListener('submit', onsubmit);
+					form.removeEventListener('input', handle_input);
+					form.removeEventListener('reset', handle_reset);
 				};
 			};
 		}
