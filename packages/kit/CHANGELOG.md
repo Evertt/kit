@@ -1,5 +1,11 @@
 # @sveltejs/kit
 
+## 2.49.5
+### Patch Changes
+
+
+- fix: avoid overriding Vite default `base` when running Vitest 4 ([#14866](https://github.com/sveltejs/kit/pull/14866))
+
 ## 2.49.4
 ### Patch Changes
 
